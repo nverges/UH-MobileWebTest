@@ -23,10 +23,9 @@ import _ from 'lodash';
 })
 export class UserPostsPage {
 
-  users: any;
+  // variables
   username: any;
   posts: any;
-  id: any;
   userId: any;
   title: any;
   body: any;
@@ -46,6 +45,7 @@ export class UserPostsPage {
     this.userId = this.navParams.get('user').userId;
   }
 
+  // Get users posts by ID
   getUserPosts(id) {
     this.restProvider.getUserPosts(id)
     .then(data => {
@@ -59,11 +59,13 @@ export class UserPostsPage {
     });
   }
 
+  // Display Create New Post Page in Modal
   displayModal() {
     let modal = this.modalCtrl.create(CreateNewPostPage);
     modal.present();
   }
 
+  // Close View
   close() {
     this.viewCtrl.dismiss();
   }

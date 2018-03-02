@@ -16,6 +16,7 @@ export class RestProvider {
     console.log('RestProvider loaded');
   }
 
+  // Get list of all users
   getUsers() {
     return new Promise(resolve => {
       this.http.get(this.apiUrl+'/users').subscribe(data => {
@@ -26,6 +27,7 @@ export class RestProvider {
     });
   }
 
+  // Get posts from specific user
   getUserPosts(id) {
     return new Promise(resolve => {
       this.http.get(this.apiUrl+'/posts?userID='+id).subscribe(data => {
@@ -36,6 +38,7 @@ export class RestProvider {
     });
   }
 
+  // Add new post
   addPost(data) {
     return new Promise((resolve, reject) => {
       this.http.post(this.apiUrl+'/posts', JSON.stringify(data))
@@ -45,6 +48,11 @@ export class RestProvider {
           reject(err);
         });
     });
+  }
+
+  // Edit post
+  editPost(post) {
+    
   }
 
 }

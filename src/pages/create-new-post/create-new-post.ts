@@ -19,20 +19,29 @@ import { RestProvider } from '../../providers/rest/rest';
 export class CreateNewPostPage {
 
   posts: any;
+  title: any;
+  body: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public restProvider: RestProvider) {
-    
+
   }
 
   ionViewDidLoad() {
     console.log('CreateNewPostPage loaded');
   }
 
-  savePost(post) {
-    this.posts.push(post);
-    this.restProvider.addPost(this.posts);
+  // Save Post (not yet functioning)
+  savePost() {
+    // New Post object
+    let newItem = {
+      title: this.title,
+      body: this.body,
+    };
+    // { need to post to DB }
+    this.viewCtrl.dismiss(newItem);
   }
 
+  // Close View
   close() {
     this.viewCtrl.dismiss();
   }

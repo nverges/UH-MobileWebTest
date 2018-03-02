@@ -24,6 +24,7 @@ export class HomePage {
     console.log('HomePage loaded');
   }
 
+  // Get all users
   getUsers() {
     this.restProvider.getUsers()
     .then(data => {
@@ -31,6 +32,7 @@ export class HomePage {
     });
   }
 
+  // Click event to display user posts page
   viewPosts(user) {
     this.navCtrl.push(UserPostsPage, {
       user
