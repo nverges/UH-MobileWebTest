@@ -1,0 +1,21 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            U-HAUL Mobile Web Test
+        </ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="displayModal()" ion-button><ion-icon name='add-circle'></ion-icon></button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list inset>
+        <ion-item *ngFor="let user of users" (click)='viewPosts(user)' style="cursor:pointer">
+            <h2>{{user.username}}</h2>
+            <p>{{user.address.street}} {{user.address.suite}}, {{user.address.city}} {{user.address.zipcode}} </p>
+        </ion-item>
+    </ion-list>
+
+    <!-- <button (click)="displayModal()" ion-button>Add User</button> -->
+</ion-content>
