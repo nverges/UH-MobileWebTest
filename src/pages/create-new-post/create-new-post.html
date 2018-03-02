@@ -7,14 +7,13 @@
 <ion-header>
 
     <ion-navbar>
-        <ion-title>createNewPost</ion-title>
+        <ion-title>Create New Post for user</ion-title>
         <ion-buttons end>
             <button ion-button icon-only (click)='close()'><ion-icon name='close'></ion-icon></button>
         </ion-buttons>
     </ion-navbar>
 
 </ion-header>
-
 
 <ion-content padding>
 
@@ -26,12 +25,12 @@
         </ion-item>
 
         <ion-item>
-            <ion-label floating>Description</ion-label>
-            <ion-input type='text' [(ngModel)]='description'></ion-input>
+            <ion-label floating>Body</ion-label>
+            <ion-input type='text' [(ngModel)]='body'></ion-input>
         </ion-item>
 
     </ion-list>
 
-    <button full ion-button color='secondary' (click)='saveItem()'>Save</button>
+    <button full ion-button color='secondary' (click)='savePost()'>Save</button>
 
 </ion-content>

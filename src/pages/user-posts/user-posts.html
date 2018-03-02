@@ -18,14 +18,14 @@
 
 
 <ion-content padding>
-    <ion-card *ngFor="let user of users">
+    <ion-card *ngFor="let post of posts">
 
         <ion-card-header value='title'>
-            {{ user.title }}
+            {{ post.title }}
         </ion-card-header>
 
         <ion-card-content value='body'>
-            {{ user.body }}
+            {{ post.body }}
         </ion-card-content>
 
     </ion-card>

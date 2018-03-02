@@ -28,13 +28,12 @@ export class HomePage {
     this.restProvider.getUsers()
     .then(data => {
       this.users = data;
-      console.log(this.users);
     });
   }
 
   viewPosts(user) {
     this.navCtrl.push(UserPostsPage, {
-      user: user
+      user
     })
   }
 

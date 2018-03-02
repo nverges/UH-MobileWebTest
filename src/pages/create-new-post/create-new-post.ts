@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 
+// Providers
+import { RestProvider } from '../../providers/rest/rest';
+
 /**
  * Generated class for the CreateNewPostPage page.
  *
@@ -15,12 +18,19 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 })
 export class CreateNewPostPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
+  posts: any;
 
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public restProvider: RestProvider) {
+    
   }
 
   ionViewDidLoad() {
     console.log('CreateNewPostPage loaded');
+  }
+
+  savePost(post) {
+    this.posts.push(post);
+    this.restProvider.addPost(this.posts);
   }
 
   close() {

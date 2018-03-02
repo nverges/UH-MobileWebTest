@@ -7,7 +7,7 @@ import { RestProvider } from '../../providers/rest/rest';
 // Pages
 import { CreateNewPostPage } from '../create-new-post/create-new-post';
 
-// import _ from 'lodash';
+import _ from 'lodash';
 
 /**
  * Generated class for the UserPostsPage page.
@@ -27,28 +27,35 @@ export class UserPostsPage {
   username: any;
   posts: any;
   id: any;
-  userID: any;
+  userId: any;
   title: any;
   body: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public restProvider: RestProvider, public modalCtrl: ModalController) {
-    this.getUserPosts(this.username);
+
   }
 
   ionViewDidLoad() {
     console.log('UserPostsPage loaded');
+    console.log(this.navParams.get('user'));
+
+    this.getUserPosts(this.navParams.get('user').id);
     this.username = this.navParams.get('user').username;
     this.title = this.navParams.get('user').title;
     this.body = this.navParams.get('user').body;
+    this.userId = this.navParams.get('user').userId;
   }
 
   getUserPosts(id) {
     this.restProvider.getUserPosts(id)
     .then(data => {
-      this.users = data;
-      console.log(this.users);
-      // let test = _.filter(this.users, [this.userID]);
-      // console.log(test);
+
+      // entire data object
+      console.log(data);
+
+      // filter for specific user
+      this.posts = _.filter(data, { userId: id});
+      console.log(this.posts);
     });
   }
 
