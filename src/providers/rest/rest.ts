@@ -36,9 +36,9 @@ export class RestProvider {
     });
   }
 
-  addUser(data) {
+  addPost(data) {
     return new Promise((resolve, reject) => {
-      this.http.post(this.apiUrl+'/users', JSON.stringify(data))
+      this.http.post(this.apiUrl+'/posts', JSON.stringify(data))
         .subscribe(res => {
           resolve(res);
         }, (err) => {

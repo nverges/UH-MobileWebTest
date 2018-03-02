@@ -9,7 +9,7 @@
     <ion-navbar>
         <ion-title>Posts for user: {{ username }}</ion-title>
         <ion-buttons end>
-            <button ion-button icon-only (click)="displayModal()" ion-button><ion-icon name='add-circle'></ion-icon></button>
+            <button ion-button icon-only (click)='displayModal()' ion-button><ion-icon name='add-circle'></ion-icon></button>
             <button ion-button icon-only (click)='close()'><ion-icon name='close'></ion-icon></button>
         </ion-buttons>
     </ion-navbar>
@@ -26,8 +26,6 @@
 
         <ion-card-content value='body'>
             {{ user.body }}
-            <!-- <h2>{{ body }}</h2> -->
-
         </ion-card-content>
 
     </ion-card>

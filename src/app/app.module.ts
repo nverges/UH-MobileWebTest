@@ -10,6 +10,7 @@ import { MyApp } from './app.component';
 // Pages
 import { HomePage } from '../pages/home/home';
 import { UserPostsPage } from '../pages/user-posts/user-posts';
+import { CreateNewPostPage } from '../pages/create-new-post/create-new-post';
 
 // Providers
 import { RestProvider } from '../providers/rest/rest';
@@ -18,7 +19,8 @@ import { RestProvider } from '../providers/rest/rest';
   declarations: [
     MyApp,
     HomePage,
-    UserPostsPage
+    UserPostsPage,
+    CreateNewPostPage
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,8 @@ import { RestProvider } from '../providers/rest/rest';
   entryComponents: [
     MyApp,
     HomePage,
-    UserPostsPage
+    UserPostsPage,
+    CreateNewPostPage
   ],
   providers: [
     StatusBar,

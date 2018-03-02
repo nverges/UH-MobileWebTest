@@ -4,6 +4,9 @@ import { IonicPage, NavController, NavParams, ViewController, ModalController } 
 // HTTP
 import { RestProvider } from '../../providers/rest/rest';
 
+// Pages
+import { CreateNewPostPage } from '../create-new-post/create-new-post';
+
 // import _ from 'lodash';
 
 /**
@@ -50,7 +53,7 @@ export class UserPostsPage {
   }
 
   displayModal() {
-    let modal = this.modalCtrl.create(UserPostsPage);
+    let modal = this.modalCtrl.create(CreateNewPostPage);
     modal.present();
   }
 

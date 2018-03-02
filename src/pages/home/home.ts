@@ -32,15 +32,6 @@ export class HomePage {
     });
   }
 
-  // goToUserPostsPage() {
-  //   this.navCtrl.push(UserPostsPage);
-  // }
-
-  displayModal() {
-    let modal = this.modalCtrl.create(UserPostsPage);
-    modal.present();
-  }
-
   viewPosts(user) {
     this.navCtrl.push(UserPostsPage, {
       user: user
