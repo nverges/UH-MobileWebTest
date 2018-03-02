@@ -4,6 +4,8 @@ import { IonicPage, NavController, NavParams, ViewController, ModalController } 
 // HTTP
 import { RestProvider } from '../../providers/rest/rest';
 
+// import _ from 'lodash';
+
 /**
  * Generated class for the UserPostsPage page.
  *
@@ -19,18 +21,22 @@ import { RestProvider } from '../../providers/rest/rest';
 export class UserPostsPage {
 
   users: any;
-  username;
-  posts;
-  id;
+  username: any;
+  posts: any;
+  id: any;
+  userID: any;
+  title: any;
+  body: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public restProvider: RestProvider, public modalCtrl: ModalController) {
     this.getUserPosts(this.username);
   }
 
   ionViewDidLoad() {
-    console.log('UserPostsPage did load');
+    console.log('UserPostsPage loaded');
     this.username = this.navParams.get('user').username;
-    this.posts = this.navParams.get('user').posts;
+    this.title = this.navParams.get('user').title;
+    this.body = this.navParams.get('user').body;
   }
 
   getUserPosts(id) {
@@ -38,6 +44,8 @@ export class UserPostsPage {
     .then(data => {
       this.users = data;
       console.log(this.users);
+      // let test = _.filter(this.users, [this.userID]);
+      // console.log(test);
     });
   }
 

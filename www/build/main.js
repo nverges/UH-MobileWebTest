@@ -34,13 +34,14 @@ var UserPostsPage = (function () {
         this.viewCtrl = viewCtrl;
         this.restProvider = restProvider;
         this.modalCtrl = modalCtrl;
-        this.getUserPosts(this.username);
+        this.getUserPosts(this.userID);
     }
     UserPostsPage_1 = UserPostsPage;
     UserPostsPage.prototype.ionViewDidLoad = function () {
-        console.log('UserPostsPage did load');
+        console.log('UserPostsPage loaded');
         this.username = this.navParams.get('user').username;
-        this.posts = this.navParams.get('user').posts;
+        this.title = this.navParams.get('user').title;
+        this.body = this.navParams.get('user').body;
     };
     UserPostsPage.prototype.getUserPosts = function (id) {
         var _this = this;
@@ -59,7 +60,7 @@ var UserPostsPage = (function () {
     };
     UserPostsPage = UserPostsPage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-user-posts',template:/*ion-inline-start:"/Users/nick/Desktop/UH-MobileWebTest/src/pages/user-posts/user-posts.html"*/'<!--\n  Generated template for the UserPostsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>Posts for user: {{ username }}</ion-title>\n        <ion-buttons end>\n            <button ion-button icon-only (click)="displayModal()" ion-button><ion-icon name=\'add-circle\'></ion-icon></button>\n            <button ion-button icon-only (click)=\'close()\'><ion-icon name=\'close\'></ion-icon></button>\n        </ion-buttons>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-card *ngFor="let user of users">\n\n        <ion-card-header>\n            {{ title }}\n        </ion-card-header>\n\n        <ion-card-content>\n            <h2>{{ body }}</h2>\n        </ion-card-content>\n\n    </ion-card>\n\n</ion-content>'/*ion-inline-end:"/Users/nick/Desktop/UH-MobileWebTest/src/pages/user-posts/user-posts.html"*/,
+            selector: 'page-user-posts',template:/*ion-inline-start:"/Users/nick/Desktop/UH-MobileWebTest/src/pages/user-posts/user-posts.html"*/'<!--\n  Generated template for the UserPostsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>Posts for user: {{ username }}</ion-title>\n        <ion-buttons end>\n            <button ion-button icon-only (click)="displayModal()" ion-button><ion-icon name=\'add-circle\'></ion-icon></button>\n            <button ion-button icon-only (click)=\'close()\'><ion-icon name=\'close\'></ion-icon></button>\n        </ion-buttons>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-card *ngFor="let user of users">\n\n        <ion-card-header value=\'title\'>\n            {{ user.title }}\n        </ion-card-header>\n\n        <ion-card-content value=\'body\'>\n            {{ user.body }}\n            <!-- <h2>{{ body }}</h2> -->\n\n        </ion-card-content>\n\n    </ion-card>\n\n</ion-content>'/*ion-inline-end:"/Users/nick/Desktop/UH-MobileWebTest/src/pages/user-posts/user-posts.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ViewController */], __WEBPACK_IMPORTED_MODULE_2__providers_rest_rest__["a" /* RestProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* ModalController */]])
     ], UserPostsPage);
@@ -145,6 +146,9 @@ var HomePage = (function () {
         this.modalCtrl = modalCtrl;
         this.getUsers();
     }
+    HomePage.prototype.ionViewDidLoad = function () {
+        console.log('HomePage loaded');
+    };
     HomePage.prototype.getUsers = function () {
         var _this = this;
         this.restProvider.getUsers()
@@ -153,9 +157,9 @@ var HomePage = (function () {
             console.log(_this.users);
         });
     };
-    HomePage.prototype.goToUserPostsPage = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__user_posts_user_posts__["a" /* UserPostsPage */]);
-    };
+    // goToUserPostsPage() {
+    //   this.navCtrl.push(UserPostsPage);
+    // }
     HomePage.prototype.displayModal = function () {
         var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_3__user_posts_user_posts__["a" /* UserPostsPage */]);
         modal.present();
@@ -339,7 +343,7 @@ var RestProvider = (function () {
     function RestProvider(http) {
         this.http = http;
         this.apiUrl = 'http://jsonplaceholder.typicode.com';
-        console.log('Hello RestProvider Provider');
+        console.log('RestProvider loaded');
     }
     RestProvider.prototype.getUsers = function () {
         var _this = this;

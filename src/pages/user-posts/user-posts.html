@@ -20,12 +20,14 @@
 <ion-content padding>
     <ion-card *ngFor="let user of users">
 
-        <ion-card-header>
-            {{ title }}
+        <ion-card-header value='title'>
+            {{ user.title }}
         </ion-card-header>
 
-        <ion-card-content>
-            <h2>{{ body }}</h2>
+        <ion-card-content value='body'>
+            {{ user.body }}
+            <!-- <h2>{{ body }}</h2> -->
+
         </ion-card-content>
 
     </ion-card>

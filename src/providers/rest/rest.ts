@@ -13,7 +13,7 @@ export class RestProvider {
   apiUrl = 'http://jsonplaceholder.typicode.com';
 
   constructor(public http: HttpClient) {
-    console.log('Hello RestProvider Provider');
+    console.log('RestProvider loaded');
   }
 
   getUsers() {

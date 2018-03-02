@@ -5,7 +5,6 @@ import { RestProvider } from '../../providers/rest/rest';
 // Modal
 import { ModalController } from 'ionic-angular';
 
-
 // Pages
 import { UserPostsPage } from '../user-posts/user-posts';
 
@@ -21,6 +20,10 @@ export class HomePage {
     this.getUsers();
   }
 
+  ionViewDidLoad() {
+    console.log('HomePage loaded');
+  }
+
   getUsers() {
     this.restProvider.getUsers()
     .then(data => {
@@ -29,9 +32,9 @@ export class HomePage {
     });
   }
 
-  goToUserPostsPage() {
-    this.navCtrl.push(UserPostsPage);
-  }
+  // goToUserPostsPage() {
+  //   this.navCtrl.push(UserPostsPage);
+  // }
 
   displayModal() {
     let modal = this.modalCtrl.create(UserPostsPage);
